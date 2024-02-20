@@ -1,4 +1,5 @@
 ﻿using BasePlugin.Interfaces;
+using Assembly;
 using CountDown;
 using Counter;
 using CountTheWords;
@@ -49,10 +50,13 @@ namespace Infrastructure
             {
                 return new CountWordPlugin();
             }
-            else
-
+            else if (id== AssemblyNumberPlugin._Id)
             {
-                throw new NotImplementedException();
+                return new AssemblyNumberPlugin();
+            }
+            else 
+            { 
+                throw new NotImplementedException(); 
             }
         }
 
@@ -64,7 +68,8 @@ namespace Infrastructure
             EchoPlugin._Id,
             ListPlugin.ListPlugin._Id,
             CountTheWordsPlugin._Id,
-            CountWordPlugin._Id
+            CountWordPlugin._Id,
+            AssemblyNumberPlugin._Id
         };
     }
 }

@@ -17,9 +17,11 @@ namespace CountDown
 
         public PluginOutput Execute(PluginInput input)
         {
-            var interval = int.Parse(input.Message);
+            var interval = 0;
+            if (input.Message != null && input.Message != "")
+                interval = int.Parse(input.Message);
             _scheduler.Schedule(TimeSpan.FromSeconds(interval), Id, "");
-            return new PluginOutput("Countdown started.");
+            return new PluginOutput("Countdown started.", interval.ToString());
 
         }
 
